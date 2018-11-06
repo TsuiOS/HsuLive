@@ -29,6 +29,7 @@
     self.classNames = @[].mutableCopy;
 
     [self addCell:@"iOS重拾直播-直播聊天室" class:@"JNChatroomViewController"];
+    [self addCell:@"iOS重拾直播-左右清屏" class:@"JNPlayerViewController"];
     
     [self.view addSubview:self.tableView];
     
@@ -55,6 +56,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *className = self.classNames[indexPath.row];
     Class class = NSClassFromString(className);
+
     if (class) {
         UIViewController *ctrl = class.new;
         ctrl.title = _titles[indexPath.row];

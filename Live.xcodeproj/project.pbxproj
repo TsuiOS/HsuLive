@@ -11,6 +11,8 @@
 		7918DFC42191317F0086D8F9 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7918DFBE2191317F0086D8F9 /* MessageCell.m */; };
 		7918DFC52191317F0086D8F9 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7918DFBF2191317F0086D8F9 /* TestViewController.m */; };
 		7918DFC62191317F0086D8F9 /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7918DFC02191317F0086D8F9 /* CellModel.m */; };
+		7918DFCA219137340086D8F9 /* JNPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7918DFC9219137340086D8F9 /* JNPlayerViewController.m */; };
+		7918DFCD219137520086D8F9 /* JNPlayerChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7918DFCC219137520086D8F9 /* JNPlayerChatViewController.m */; };
 		7922803A2190924B00EDCB87 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 792280392190924B00EDCB87 /* AppDelegate.m */; };
 		7922803D2190924B00EDCB87 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7922803C2190924B00EDCB87 /* ViewController.m */; };
 		792280402190924B00EDCB87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7922803E2190924B00EDCB87 /* Main.storyboard */; };
@@ -33,6 +35,10 @@
 		7918DFC12191317F0086D8F9 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		7918DFC22191317F0086D8F9 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		7918DFC32191317F0086D8F9 /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
+		7918DFC8219137340086D8F9 /* JNPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNPlayerViewController.h; sourceTree = "<group>"; };
+		7918DFC9219137340086D8F9 /* JNPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JNPlayerViewController.m; sourceTree = "<group>"; };
+		7918DFCB219137520086D8F9 /* JNPlayerChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNPlayerChatViewController.h; sourceTree = "<group>"; };
+		7918DFCC219137520086D8F9 /* JNPlayerChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JNPlayerChatViewController.m; sourceTree = "<group>"; };
 		792280352190924B00EDCB87 /* Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Live.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		792280382190924B00EDCB87 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		792280392190924B00EDCB87 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,6 +102,17 @@
 			path = UITableVIewSelfSizing;
 			sourceTree = "<group>";
 		};
+		7918DFC7219136FB0086D8F9 /* ClearAndSilde */ = {
+			isa = PBXGroup;
+			children = (
+				7918DFC8219137340086D8F9 /* JNPlayerViewController.h */,
+				7918DFC9219137340086D8F9 /* JNPlayerViewController.m */,
+				7918DFCB219137520086D8F9 /* JNPlayerChatViewController.h */,
+				7918DFCC219137520086D8F9 /* JNPlayerChatViewController.m */,
+			);
+			path = ClearAndSilde;
+			sourceTree = "<group>";
+		};
 		7922802C2190924A00EDCB87 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +134,7 @@
 		792280372190924B00EDCB87 /* Live */ = {
 			isa = PBXGroup;
 			children = (
+				7918DFC7219136FB0086D8F9 /* ClearAndSilde */,
 				7918DFB6219129F50086D8F9 /* YYFPSLabel */,
 				7922804E219093EE00EDCB87 /* ChatRoom */,
 				792280382190924B00EDCB87 /* AppDelegate.h */,
@@ -205,6 +223,7 @@
 		7922802D2190924A00EDCB87 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = JN;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = xuning;
 				TargetAttributes = {
@@ -274,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7918DFCA219137340086D8F9 /* JNPlayerViewController.m in Sources */,
 				7918DFC52191317F0086D8F9 /* TestViewController.m in Sources */,
 				792280572190963400EDCB87 /* RCCRMessageModel.m in Sources */,
 				7918DFBC219129F50086D8F9 /* YYFPSLabel.m in Sources */,
@@ -284,6 +304,7 @@
 				7918DFC42191317F0086D8F9 /* MessageCell.m in Sources */,
 				792280482190924D00EDCB87 /* main.m in Sources */,
 				7922803A2190924B00EDCB87 /* AppDelegate.m in Sources */,
+				7918DFCD219137520086D8F9 /* JNPlayerChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
