@@ -11,6 +11,8 @@
 #import "RCDLiveTextMessageCell.h"
 #import <Masonry.h>
 #import <YYKit.h>
+#import "YYFPSLabel.h"
+#import "TestViewController.h"
 
 static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @interface JNChatroomViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -29,6 +31,7 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 @property (nonatomic, strong) RCDLiveTextMessageCell *tempMsgCell;
 
 
+
 @end
 
 @implementation JNChatroomViewController
@@ -36,6 +39,8 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    YYFPSLabel *fpsLabel = [[YYFPSLabel alloc] initWithFrame:CGRectMake(0, 100, 60, 20)];
+    [self.view addSubview:fpsLabel];
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"随机消息" style:(UIBarButtonItemStyleDone) target:self action:@selector(addMessage)];
@@ -63,6 +68,16 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     
     [self.conversationMessageTableView reloadData];
     
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, self.view.height - 200, self.view.width, 44)];
+    [button setTitle:@"对比方案" forState:UIControlStateNormal];
+    button.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.5];
+    [self.view addSubview:button];
+    [button addTarget:self action:@selector(testAction) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)testAction {
+    TestViewController *test = [[TestViewController alloc]init];
+    [self.navigationController pushViewController:test animated:YES];
 }
 
 - (void)addMessage {
@@ -88,7 +103,7 @@ static NSString *const rctextCellIndentifier = @"rctextCellIndentifier";
     // 插入到tableView中
     [self.conversationMessageTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.conversationDataRepository.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     // 再滚动到最底部
-    [self.conversationMessageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.conversationDataRepository.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [self.conversationMessageTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.conversationDataRepository.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:YES];
 }
 
 - (void)setupUI {
