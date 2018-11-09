@@ -16,6 +16,10 @@
 		792280542190943500EDCB87 /* JNChatroomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792280532190943500EDCB87 /* JNChatroomViewController.m */; };
 		792280572190963400EDCB87 /* RCCRMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 792280562190963400EDCB87 /* RCCRMessageModel.m */; };
 		7922805A2190966A00EDCB87 /* RCDLiveTextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 792280592190966A00EDCB87 /* RCDLiveTextMessageCell.m */; };
+		793309DB2195C3C300FBA0C6 /* SvgaMgrModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 793309D82195C3C300FBA0C6 /* SvgaMgrModel.m */; };
+		793309DC2195C3C300FBA0C6 /* SvgaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 793309D92195C3C300FBA0C6 /* SvgaManager.m */; };
+		793309DD2195C3C300FBA0C6 /* SVGACustomPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 793309DA2195C3C300FBA0C6 /* SVGACustomPlayer.m */; };
+		793309E02195C3D700FBA0C6 /* JNSVGAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 793309DF2195C3D700FBA0C6 /* JNSVGAViewController.m */; };
 		D303FABDCA13095A93DD1D21 /* libPods-Live.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA87C4F8D032AFC89678A4DD /* libPods-Live.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,14 @@
 		792280562190963400EDCB87 /* RCCRMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCCRMessageModel.m; sourceTree = "<group>"; };
 		792280582190966A00EDCB87 /* RCDLiveTextMessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCDLiveTextMessageCell.h; sourceTree = "<group>"; };
 		792280592190966A00EDCB87 /* RCDLiveTextMessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCDLiveTextMessageCell.m; sourceTree = "<group>"; };
+		793309D52195C3C300FBA0C6 /* SvgaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvgaManager.h; sourceTree = "<group>"; };
+		793309D62195C3C300FBA0C6 /* SvgaMgrModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvgaMgrModel.h; sourceTree = "<group>"; };
+		793309D72195C3C300FBA0C6 /* SVGACustomPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGACustomPlayer.h; sourceTree = "<group>"; };
+		793309D82195C3C300FBA0C6 /* SvgaMgrModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvgaMgrModel.m; sourceTree = "<group>"; };
+		793309D92195C3C300FBA0C6 /* SvgaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvgaManager.m; sourceTree = "<group>"; };
+		793309DA2195C3C300FBA0C6 /* SVGACustomPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVGACustomPlayer.m; sourceTree = "<group>"; };
+		793309DE2195C3D700FBA0C6 /* JNSVGAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNSVGAViewController.h; sourceTree = "<group>"; };
+		793309DF2195C3D700FBA0C6 /* JNSVGAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JNSVGAViewController.m; sourceTree = "<group>"; };
 		CA87C4F8D032AFC89678A4DD /* libPods-Live.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Live.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5BEB1429A4B9E26B871F23B /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +95,7 @@
 		792280372190924B00EDCB87 /* Live */ = {
 			isa = PBXGroup;
 			children = (
+				793309D32195C3B200FBA0C6 /* SVGA */,
 				7922804E219093EE00EDCB87 /* ChatRoom */,
 				792280382190924B00EDCB87 /* AppDelegate.h */,
 				792280392190924B00EDCB87 /* AppDelegate.m */,
@@ -132,6 +145,29 @@
 				792280562190963400EDCB87 /* RCCRMessageModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		793309D32195C3B200FBA0C6 /* SVGA */ = {
+			isa = PBXGroup;
+			children = (
+				793309D42195C3C300FBA0C6 /* SVGAManager */,
+				793309DE2195C3D700FBA0C6 /* JNSVGAViewController.h */,
+				793309DF2195C3D700FBA0C6 /* JNSVGAViewController.m */,
+			);
+			path = SVGA;
+			sourceTree = "<group>";
+		};
+		793309D42195C3C300FBA0C6 /* SVGAManager */ = {
+			isa = PBXGroup;
+			children = (
+				793309D52195C3C300FBA0C6 /* SvgaManager.h */,
+				793309D62195C3C300FBA0C6 /* SvgaMgrModel.h */,
+				793309D72195C3C300FBA0C6 /* SVGACustomPlayer.h */,
+				793309D82195C3C300FBA0C6 /* SvgaMgrModel.m */,
+				793309D92195C3C300FBA0C6 /* SvgaManager.m */,
+				793309DA2195C3C300FBA0C6 /* SVGACustomPlayer.m */,
+			);
+			path = SVGAManager;
 			sourceTree = "<group>";
 		};
 		EBF927301BCAF89EDFA3B9CD /* Frameworks */ = {
@@ -239,9 +275,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				792280572190963400EDCB87 /* RCCRMessageModel.m in Sources */,
+				793309DD2195C3C300FBA0C6 /* SVGACustomPlayer.m in Sources */,
 				7922803D2190924B00EDCB87 /* ViewController.m in Sources */,
 				7922805A2190966A00EDCB87 /* RCDLiveTextMessageCell.m in Sources */,
 				792280542190943500EDCB87 /* JNChatroomViewController.m in Sources */,
+				793309DC2195C3C300FBA0C6 /* SvgaManager.m in Sources */,
+				793309DB2195C3C300FBA0C6 /* SvgaMgrModel.m in Sources */,
+				793309E02195C3D700FBA0C6 /* JNSVGAViewController.m in Sources */,
 				792280482190924D00EDCB87 /* main.m in Sources */,
 				7922803A2190924B00EDCB87 /* AppDelegate.m in Sources */,
 			);

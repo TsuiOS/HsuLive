@@ -7,6 +7,10 @@ target 'Live' do
   pod 'Masonry'
   pod 'YYKit'
 
+  pod 'SVGAPlayer'
+  pod 'SSZipArchive', '~> 1.8.1'
+  pod 'Protobuf', '~> 3.4'
+
   # Pods for Live
 
 end
