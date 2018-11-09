@@ -1,0 +1,126 @@
+//
+//  ViewController.m
+//  UITableVIewSelfSizing
+//
+//  Created by 赵赤赤 on 2017/1/11.
+//  Copyright © 2017年 mhz. All rights reserved.
+//
+
+#import "TestViewController.h"
+#import "YYFPSLabel.h"
+#import "MessageCell.h"
+#import "CellModel.h"
+
+@interface TestViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) MessageCell *tempCell;
+
+@end
+
+@implementation TestViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    // 仔细观察cell的出现方式,cell的出现方式有一个动画
+    
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    YYFPSLabel *fpsLabel = [[YYFPSLabel alloc] initWithFrame:CGRectMake(0, 100, 60, 20)];
+    [self.view addSubview:fpsLabel];
+    
+    // 创建TableView
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, 200, 300) style:0];
+    self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.delegate = self;
+    [self.view addSubview:self.tableView];
+    // 注册cell
+    [self.tableView registerClass:[MessageCell class] forCellReuseIdentifier:@"MessageCell"];
+    
+    // 模拟一些数据源
+    NSArray *nameArr = @[@"张三：",
+                         @"李四：",
+                         @"王五：",
+                         @"陈六：",
+                         @"吴老二："];
+    NSArray *messageArr = @[@"ash快点回家爱是妒忌哈市党和国家按时到岗哈时代光华撒国会大厦国会大厦国会大厦更好的噶山东黄金撒旦哈安师大噶是个混蛋撒",
+                            @"傲世江湖点撒恭候大驾水草玛瑙现在才明白你个坏蛋擦边沙尘暴你先走吧出现在",
+                            @"撒点花噶闪光灯",
+                            @"按时间大公司大概好久撒大概好久撒党和国家按时到岗哈师大就萨达数据库化打算几点撒谎就看电视骄傲的撒金葵花打暑假工大撒比的撒谎讲大话手机巴士差距啊市场报价啊山东黄金as擦伤擦啊as擦肩时擦市场报价按时VC阿擦把持啊三重才撒啊双层巴士吃按时吃啊双层巴士擦报啥错",
+                            @"as大帅哥大孤山街道安师大好噶时间过得撒黄金国度"];
+    // 向数据源中随机放入500个Model
+    self.dataArr = [[NSMutableArray alloc] init];
+    for (int i=0; i<500; i++) {
+        CellModel *model = [[CellModel alloc] init];
+        model.name = nameArr[arc4random()%nameArr.count];
+        model.message = messageArr[arc4random()%messageArr.count];
+        [self.dataArr addObject:model];
+    }
+    
+    // 我们再创建一个按钮，点击可从后面追加一些数据进来
+   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"随机消息" style:(UIBarButtonItemStyleDone) target:self action:@selector(addData)];
+    
+    // 创建
+    self.tempCell = [[MessageCell alloc] initWithStyle:0 reuseIdentifier:@"MessageCell"];
+}
+
+- (void)addData {
+    // 模拟一些数据源
+    NSArray *nameArr = @[@"张三：",
+                         @"李四：",
+                         @"王五：",
+                         @"陈六：",
+                         @"吴老二："];
+    NSArray *messageArr = @[@"ash快点回家爱是妒忌哈市党和国家按时到岗哈时代光华撒国会大厦国会大厦国会大厦更好的噶山东黄金撒旦哈安师大噶是个混蛋撒",
+                            @"傲世江湖点撒恭候大驾水草玛瑙现在才明白你个坏蛋擦边沙尘暴你先走吧出现在",
+                            @"撒点花噶闪光灯",
+                            @"按时间大公司大概好久撒大概好久撒党和国家按时到岗哈师大就萨达数据库化打算几点撒谎就看电视骄傲的撒金葵花打暑假工大撒比的撒谎讲大话手机巴士差距啊市场报价啊山东黄金as擦伤擦啊as擦肩时擦市场报价按时VC阿擦把持啊三重才撒啊双层巴士吃按时吃啊双层巴士擦报啥错",
+                            @"as大帅哥大孤山街道安师大好噶时间过得撒黄金国度"];
+    // 添加一个Model，在追加到Tableview中
+    CellModel *model = [[CellModel alloc] init];
+    model.name = nameArr[arc4random()%nameArr.count];
+    model.message = messageArr[arc4random()%messageArr.count];
+    [self.dataArr addObject:model];
+    
+    // 插入到tableView中
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.dataArr.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    
+ 
+        // 再滚动到最底部
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.dataArr.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArr.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CellModel *model = self.dataArr[indexPath.row];
+    if (model.cellHeight == 0) {
+        CGFloat cellHeight = [self.tempCell heightForModel:self.dataArr[indexPath.row]];
+
+        // 缓存给model
+        model.cellHeight = cellHeight;
+
+        return cellHeight;
+    } else {
+        return model.cellHeight;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
+    [cell setMessage:self.dataArr[indexPath.row]];
+    return cell;
+}
+
+
+@end

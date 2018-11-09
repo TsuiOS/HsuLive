@@ -7,7 +7,7 @@
 //
 
 #import "SvgaManager.h"
-
+#import <YYKit.h>
 
 @interface SvgaManager()<SVGAPlayerDelegate>
 
@@ -20,7 +20,7 @@
  */
 @property (nonatomic, strong) NSMutableArray<SvgaMgrModel *>* svgaItems;
 
-@property (nonatomic, weak) UIView *tempSuperView;
+@property (nonatomic, strong) UIView *tempSuperView;
 // 是否是礼物操作
 @property (nonatomic, assign) BOOL isGiftSvga;
 
@@ -41,7 +41,6 @@
 
 - (void)loadSvgaItem:(SvgaMgrModel *)model superview:(UIView *)view SVGAFrame:(CGRect)rect {
     
-    // 记录父视图  这里产生了强引用,所以tempSuperView 用weak修饰
     self.tempSuperView = view;
     
     // 缓存数据
@@ -158,7 +157,7 @@
 
 - (void)dealloc{
     
-    DLog(@"内存已经释放");
+    
 }
 
 #pragma mark - setter/getter
